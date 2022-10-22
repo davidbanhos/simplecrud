@@ -29,11 +29,7 @@ public class BooksService {
     }
 
     public void saveOrUpdate(Books books) {
-        booksRepository.save(books);
-    }
-
-    public void update(Books books, int bookid) {
-        booksRepository.save(books);
+        booksRepository.saveAndFlush(books);
     }
 
 }

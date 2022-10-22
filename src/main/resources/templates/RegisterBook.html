@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org/" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title th:unless="${book != null}">Register Book</title>
+  <title th:unless="${book == null}">Edit Book</title>
+</head>
+<body>
+<a th:href="@{/}">Back to Main Page</a>
+<br>
+
+  <th:block th:if="${book == null}">
+      <h1>Register Book</h1>
+      <form method="post" th:action="@{/app/book/save}">
+        Id : <input type="text" name="bookid"/>
+        Name : <input type="text" name="bookname"/>
+        Author : <input type="text" name="author"/>
+        Price: <input type="text" name="price"/>
+        Tag: <input type="text" name="tag"/>
+        <input type="submit" value="register"/>
+      </form>
+  </th:block>
+
+  <th:block th:if="${book != null}">
+    <h1>Edit Book</h1>
+    <form method="post" th:action="@{/app/book/save}" th:object="${book}">
+      Id : <input type="hidden" th:field="*{bookid}" th:value="*{bookid}"/>
+      Name : <input type="text" th:field="*{bookname}"/>
+      Author : <input type="text" th:field="*{author}"/>
+      Price: <input type="text" th:field="*{price}"/>
+      Tag: <input type="text" th:field="*{tag}"/>
+      <input type="submit" value="register"/>
+    </form>
+  </th:block>
+
+</body>
+</html>

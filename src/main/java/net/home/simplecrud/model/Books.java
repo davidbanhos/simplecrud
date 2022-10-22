@@ -1,10 +1,6 @@
 package net.home.simplecrud.model;
 
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table
@@ -22,6 +18,9 @@ public class Books {
 
     @Column
     private int price;
+
+    @Column
+    private String tag;
 
     public int getBookid() {
         return bookid;
@@ -54,4 +53,13 @@ public class Books {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+    
 }
